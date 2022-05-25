@@ -16,25 +16,25 @@ module.exports = {
      
     rinkeby: {
       url: "https://rinkeby.infura.io/v3/018a1557b0e34090a84c111da5c01426",
-      accounts: ["PRIVATE_KEY"],
+      accounts: ["606ebc0fdf53ba7d03ffaf735064105f9e083119ab91f36e06c9fc67080f8323"],
       gas: 2100000,
       gasPrice: 8000000000,
     },
     mainnet: {
       url: "https://mainnet.infura.io/v3/9e4c4b48907f4beba4ca0f3cc9d50ea2",
-      accounts: ["PRIVATE_KEY"],
+      accounts: ["606ebc0fdf53ba7d03ffaf735064105f9e083119ab91f36e06c9fc67080f8323"],
       gas: 2100000,
       gasPrice: 30000000000,
-    },/**,
+    },
     ropsten: {
       url: "https://ropsten.infura.io/v3/nada",
-      accounts: ["nada"],
+      accounts: ["606ebc0fdf53ba7d03ffaf735064105f9e083119ab91f36e06c9fc67080f8323"],
       gas: 2100000,
       gasPrice: 8000000000,
-    }
+    },
     
-    /** 
-     *     hardhat: {
+    
+       hardhat: {
       chainId: 1337
     },
     mainnet: {
@@ -49,7 +49,7 @@ module.exports = {
       url: "https://rinkeby.infura.io/v3/9e4c4b48907f4beba4ca0f3cc9d50ea2",
       accounts: ["nada"]
     }
-    */
+   
   },
   etherscan: {
     // Your API key for Etherscan

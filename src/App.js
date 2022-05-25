@@ -6,6 +6,8 @@ import './App.css';
 
 const testMintAddress = "0x88a03f3016Ffb6fF160560325A5F73C9694c1867"
 
+
+
 function App() {
   
 
@@ -43,11 +45,20 @@ function App() {
 
   return (
     <div className="App">
+      <div className='overlay'>
+
+      
       <header className="App-header">
+        <h1> WHEREIS22 NFT</h1>
+        <p>WHEREIS22 is an exclusive NFT membership built on the Ethereum blockchain. With WHEREIS22 NFT you'll get utilities across the digital and physical world.</p>
         <button onClick={requestAccount}>Connect</button>
         <button onClick={getTokenURI}>Mint this bitch</button>
       </header>
+
+<div className='moving-background'></div>
+      </div>
     </div>
+    
   );
 }
 

@@ -94,5 +94,4 @@ contract TestMint is ERC721, Ownable, ReentrancyGuard {
         );
         _maxPublicCharacters = newPasses;
     }
-    // ------------------------------------------
-}
+    }
