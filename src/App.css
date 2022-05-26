@@ -3,8 +3,9 @@
 
 .App {
   text-align: center;
-  font-family: "Press Start 2P, VT323";
+  font-family: 'Orbitron', sans-serif;
   color: white;
+  font-size: 20px;
 }
 
 * {
@@ -13,16 +14,44 @@
 
 body {
   overflow: hidden;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .overlay{
-  opacity: 0.85;
   width: 100%;
   height: 100%;
   z-index: 10;
   top: 0;
   left: 0;
   position: fixed;
+}
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
+  background-color: #d99b14;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Orbitron', sans-serif;
+  margin: 5px;
+}
+
+.mintButtons {
+  display: flex;
+  flex-direction: row;
+  margin-left: 200px;
+  margin-right: 200px;
+  justify-content: center;
+  padding-bottom: 430px;
 }
 
 .moving-background {
@@ -32,6 +61,21 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("https://media.giphy.com/media/dOR6QEEFEobDI1UBSK/giphy.gif");
+  background-image: url("https://media.giphy.com/media/lmwPKf6XW2bAr7QigX/giphy.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+img {
+  text-align: center;
+  height: 400px;
+  width: 400px;
+  margin-top: 100px;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
