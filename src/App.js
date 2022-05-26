@@ -50,28 +50,33 @@ function App() {
   }
 
   return (
+    
     <div className="App">
-      <div className="overlay">
-        <div className="imageContainer">
-          <img src="https://media.giphy.com/media/dOR6QEEFEobDI1UBSK/giphy.gif" />
-        </div>
-        <header className="App-header">
-          <h1> WHEREIS22 NFT</h1>
-          <p>
-            WHEREIS22 is an exclusive NFT membership built on the Ethereum
-            blockchain. With WHEREIS22 NFT you'll get utilities across the
-            digital and physical world.
-          </p>
-        </header>
-        <div className="mainContainer">
-          <div className="mintButtons">
-            <button onClick={requestAccount}>Connect</button>
-            <button onClick={getTokenURI}>Mint this bitch</button>
-          </div>
-        </div>
+      
+           
 
-        <div className="moving-background"></div>
-      </div>
+  <header>
+    <h2><a href="#">WHEREIS22</a></h2>
+    <nav>
+      <li><a href="https://www.whereis22.io/">Home</a></li>
+      <li><a href="https://discord.gg/5su2hwfhcj">Discord</a></li>
+      
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="background-image"></div>
+    <div class="hero-content-area">
+      <h1>WHEREIS22 NFT</h1>
+      <h3>Price: 0.25</h3>
+      <h3>10 Per Transaction</h3>
+      <button onClick={requestAccount}>Connect</button>
+            <button onClick={getTokenURI}>Mint this bitch</button>
+    </div>
+  </section>
+
+  
+
     </div>
   );
 }
