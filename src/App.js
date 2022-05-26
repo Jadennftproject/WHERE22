@@ -53,7 +53,7 @@ function App() {
            
 
   <header>
-    <h2><a href="#">WHEREIS22</a></h2>
+    <h2><a href="">WHEREIS22</a></h2>
     <nav>
       <li><a href="https://www.whereis22.io/">Home</a></li>
       <li><a href="https://discord.gg/5su2hwfhcj">Discord</a></li>
