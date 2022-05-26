@@ -21,3 +21,6 @@ node .\MetaGenerator.js
 
 ## Store data on IPFS
 node .\storeIPFS.mjs
+
+
+
