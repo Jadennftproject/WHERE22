@@ -21,3 +21,12 @@ node .\MetaGenerator.js
 
 ## Store data on IPFS
 node .\storeIPFS.mjs
+
+
+## Splits
+
+0x6E592a8fF531C831236F4ef13A0fD84fc3A11F29 - 56%
+
+0x9b6B547901464Db627db8f161a45D3C216140BC3 - 36%
+
+0xdE67B26f22D98C1DaBbDA7defe77542BAe732573 - 8%
