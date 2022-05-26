@@ -5,3 +5,5 @@ cache
 artifacts
 frontend/src/hardhat
 build/
+# Local Netlify folder
+.netlify
