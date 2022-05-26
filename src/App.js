@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ethers } from "ethers";
 import testMint from "./artifacts/contracts/TestShit.sol/TestMint.json";
 import "./App.css";
