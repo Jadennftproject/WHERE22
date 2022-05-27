@@ -8,7 +8,7 @@ function App() {
   console.log("you won't find 22 here . . .")
   async function requestAccount() {
     const delay = ms => new Promise(res => setTimeout(res, ms));
-
+    await window.ethereum.request({method: 'eth_requestAccounts' })
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     window.provider = provider;
 /*    document.getElementById("connectButton").style.display = 'none'
