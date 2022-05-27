@@ -13,11 +13,20 @@ function App() {
     window.provider = provider;
     document.getElementById("connectButton").style.display = 'none'
     console.log(provider)
-    var accounts = await provider.listAccounts();
-    console.log(accounts)
-    var account = accounts[0]
-    if (!account)
+    var account = ""
+    try {
+      var accounts = await provider.listAccounts();
+      console.log(accounts)
+      if (accounts) {
+        account = accounts[0]
+      } else {
+        accounts = await provider.provider.listAccounts();
+        account = accounts[0]
+      }
+    } catch {
       account = ""
+    }
+
     var connectedString = "Hello,\n" + String(account).substring(0, 5) + "..." + String(account).substring(String(account).length - 4, String(account).length)
 
     var waitString = connectedString + "\n\nChecking presale allowlist"
