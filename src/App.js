@@ -4,7 +4,7 @@ import "./App.css";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 
-const testMintAddress = "0xA7a188D63a8F189231b2c50eD1db512C395AAAbB";
+const testMintAddress = "0x9317e2751CcFCA87e5e7a741F93014d8c6ED8aA6";
 
 function App() {
   console.log("you won't find 22 here . . .")
