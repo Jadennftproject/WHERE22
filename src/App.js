@@ -53,15 +53,22 @@ function App() {
     }
 
 
-    const signer = window.provider.getSigner();
-    const contract = new ethers.Contract(
-        testMintAddress,
-        testMint.abi,
-        signer
-    );
+    try {
+      const signer = window.provider.getSigner();
+      const contract = new ethers.Contract(
+          testMintAddress,
+          testMint.abi,
+          signer
+      );
 
-    const txn = await contract["presaleMint()"]({value:"250000000000000000"});
-    await txn.wait();
+      const txn = await contract["mint()"]({value:"120000000000000000"});
+      await txn.wait();
+    } catch (e) {
+      if (e.code == "INSUFFICIENT_FUNDS") {
+        document.getElementById("info").innerText = "Not enough eth for transaction.\nPlease have a little more than .12 eth."
+      }
+    }
+
   }
 
   return (
@@ -80,10 +87,11 @@ function App() {
           <div className="background-image"></div>
           <div className="hero-content-area">
             <h1>WHEREIS22 NFT</h1>
-            <h3>Presale Price: 0.25 eth</h3>
+            <h3>Sale Price: 0.12 eth</h3>
             <h3 id="address"> </h3>
             <button id="connectButton" onClick={requestAccount}>Connect</button>
             <button onClick={ClaimNFT}>Mint</button>
+            <h3 id="info"> </h3>
           </div>
         </section>
       </div>
