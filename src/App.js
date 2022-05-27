@@ -64,11 +64,10 @@ function App() {
       const txn = await contract["mint()"]({value:"120000000000000000"});
       await txn.wait();
     } catch (e) {
-      if (e.code == "INSUFFICIENT_FUNDS") {
+      if (e.code === "INSUFFICIENT_FUNDS") {
         document.getElementById("info").innerText = "Not enough eth for transaction.\nPlease have a little more than .12 eth."
       }
     }
-
   }
 
   return (
