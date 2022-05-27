@@ -11,7 +11,7 @@ function App() {
     await window.ethereum.request({method: 'eth_requestAccounts' })
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     window.provider = provider;
-/*    document.getElementById("connectButton").style.display = 'none'
+    document.getElementById("connectButton").style.display = 'none'
     console.log(provider)
     var account = ""
     try {
@@ -27,8 +27,7 @@ function App() {
       account = ""
     }
 
-    var connectedString = "Hello,\n" + String(account).substring(0, 5) + "..." + String(account).substring(String(account).length - 4, String(account).length)*/
-    var connectedString = "Connected\n"
+    var connectedString = "Hello,\n" + String(account).substring(0, 5) + "..." + String(account).substring(String(account).length - 4, String(account).length)
     var waitString = connectedString + "\n\nChecking presale allowlist"
     document.getElementById("address").innerText = waitString
 
