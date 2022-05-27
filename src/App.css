@@ -14,8 +14,8 @@
 
 body {
   overflow: hidden;
-  margin-left: 50px;
-  margin-right: 50px;
+  /* margin-left: 50px;
+  margin-right: 50px; */
 }
 
 .overlay{
@@ -30,6 +30,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  height: 100%;
 }
 
 button {

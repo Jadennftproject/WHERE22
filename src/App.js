@@ -1,5 +1,3 @@
-import logo from "./logo.svg";
-import { useState } from "react";
 import { ethers } from "ethers";
 import testMint from "./artifacts/contracts/MichaelRainey.sol/WhereIs22.json";
 import "./App.css";
@@ -9,7 +7,6 @@ import Web3Modal from "web3modal";
 const testMintAddress = "0xA7a188D63a8F189231b2c50eD1db512C395AAAbB";
 
 function App() {
-  const [greeting, setGreetingValue] = useState("");
   async function requestAccount() {
     const delay = ms => new Promise(res => setTimeout(res, ms));
     const providerOptions = {
@@ -52,7 +49,7 @@ function App() {
     await delay(300);
     document.getElementById("address").innerText = connectedString + "\n\nCongrats!  You are allowed to mint!\n\nWill you find 22?"
   }
-
+  
   async function ClaimNFT() {
     if (!window.provider)
       await requestAccount();
@@ -72,7 +69,7 @@ function App() {
     
     <div className="App">
   <header>
-    <h2><a href="#">WHEREIS22</a></h2>
+    <h2>WHEREIS22</h2>
     <nav>
       <li><a href="https://www.whereis22.io/">Home</a></li>
       <li><a href="https://discord.gg/5su2hwfhcj">Discord</a></li>

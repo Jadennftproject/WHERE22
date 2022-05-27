@@ -2,6 +2,7 @@ node_modules
 
 #hardhat files
 cache
-artifacts
 frontend/src/hardhat
 build/
+# Local Netlify folder
+.netlify
