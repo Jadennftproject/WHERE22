@@ -67,7 +67,7 @@ function App() {
       <h1>WHEREIS22 NFT</h1>
       <h3>Price: 0.25</h3>
       <button onClick={requestAccount}>Connect</button>
-      <button onClick={getTokenURI}>Mint this bitch</button>
+      <button onClick={getTokenURI}>Mint</button>
     </div>
   </section>
 
