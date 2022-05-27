@@ -1,60 +1,76 @@
 import logo from "./logo.svg";
 import { useState } from "react";
 import { ethers } from "ethers";
-import testMint from "./artifacts/contracts/TestShit.sol/TestMint.json";
+import testMint from "./artifacts/contracts/MichaelRainey.sol/WhereIs22.json";
 import "./App.css";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3Modal from "web3modal";
 
-const testMintAddress = "0x88a03f3016Ffb6fF160560325A5F73C9694c1867";
+const testMintAddress = "0xA7a188D63a8F189231b2c50eD1db512C395AAAbB";
 
 function App() {
   const [greeting, setGreetingValue] = useState("");
-
   async function requestAccount() {
-    await window.ethereum.request({ method: "eth_requestAccounts" });
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    const providerOptions = {
+      walletconnect: {
+        package: WalletConnectProvider, // required
+        options: {
+          infuraId: "9e4c4b48907f4beba4ca0f3cc9d50ea2" // required
+        }
+      }
+    };
+    const web3Modal = new Web3Modal({
+      network: "mainnet", // optional
+      cacheProvider: false, // optional
+      providerOptions // required
+    });
+
+    const connection = await web3Modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    window.provider = provider;
+    document.getElementById("connectButton").style.display = 'none'
+    var accounts = await provider.listAccounts();
+    var account = accounts[0]
+    var connectedString = "Hello,\n" + String(account).substring(0, 5) + "..." + String(account).substring(String(account).length - 4, String(account).length)
+    
+    var waitString = connectedString + "\n\nChecking presale allowlist"
+    document.getElementById("address").innerText = waitString
+    
+    var waitTime = Math.random() * 1000;
+    await delay(waitTime);
+    document.getElementById("address").innerText = waitString + "."
+
+    waitTime = Math.random() * 1000;
+    await delay(waitTime);
+    document.getElementById("address").innerText = waitString + ".."
+
+    waitTime = Math.random() * 1000;
+    await delay(waitTime);
+    document.getElementById("address").innerText = waitString + "..."
+    
+    await delay(300);
+    document.getElementById("address").innerText = connectedString + "\n\nCongrats!  You are allowed to mint!\n\nWill you find 22?"
   }
 
   async function ClaimNFT() {
-    if (typeof window.ethereum !== "undefined") {
+    if (!window.provider)
       await requestAccount();
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract(
+    
+    const signer = window.provider.getSigner();
+    const contract = new ethers.Contract(
         testMintAddress,
         testMint.abi,
         signer
-      );
+    );
 
-      const txn = await contract.setBaseURI(
-        "ipfs://bafybeia7epcga7lz3aowuhheeigq4ghr4jyu7bmidn66jhw7wpcglh5joe"
-      );
-      await txn.wait();
-    }
-  }
-
-  async function getTokenURI() {
-    if (typeof window.ethereum !== "undefined") {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract(
-        testMintAddress,
-        testMint.abi,
-        signer
-      );
-      try {
-        const data = await contract.tokenURI(2);
-        console.log("data: ", data);
-      } catch (err) {
-        console.log("Error: ", err);
-      }
-    }
+    const txn = await contract["presaleMint()"]({value:"250000000000000000"});
+    await txn.wait();
   }
 
   return (
     
     <div className="App">
-      
-           
-
   <header>
     <h2><a href="#">WHEREIS22</a></h2>
     <nav>
@@ -68,15 +84,12 @@ function App() {
     <div class="background-image"></div>
     <div class="hero-content-area">
       <h1>WHEREIS22 NFT</h1>
-      <h3>Price: 0.25</h3>
-      <h3>10 Per Transaction</h3>
-      <button onClick={requestAccount}>Connect</button>
-            <button onClick={getTokenURI}>Mint this bitch</button>
+      <h3>Presale Price: 0.25 eth</h3>
+      <h3 id="address"></h3>
+      <button id="connectButton" onClick={requestAccount}>Connect</button>
+            <button onClick={ClaimNFT}>Mint</button>
     </div>
   </section>
-
-  
-
     </div>
   );
 }
