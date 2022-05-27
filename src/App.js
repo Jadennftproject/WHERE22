@@ -7,6 +7,7 @@ import Web3Modal from "web3modal";
 const testMintAddress = "0xA7a188D63a8F189231b2c50eD1db512C395AAAbB";
 
 function App() {
+  console.log("you won't find 22 here . . .")
   async function requestAccount() {
     const delay = ms => new Promise(res => setTimeout(res, ms));
     const providerOptions = {
@@ -77,9 +78,9 @@ function App() {
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="background-image"></div>
-    <div class="hero-content-area">
+  <section className="hero">
+    <div className="background-image"></div>
+    <div className="hero-content-area">
       <h1>WHEREIS22 NFT</h1>
       <h3>Presale Price: 0.25 eth</h3>
       <h3 id="address"></h3>
