@@ -69,7 +69,7 @@ function App() {
           <div className="hero-content-area">
             <h1>WHEREIS22 NFT</h1>
             <h3>Presale Price: 0.25 eth</h3>
-            <h3 id="address"></h3>
+            <h3 id="address">Hello</h3>
             <button id="connectButton" onClick={requestAccount}>Connect</button>
             <button onClick={ClaimNFT}>Mint</button>
           </div>
