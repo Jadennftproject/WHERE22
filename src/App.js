@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import { useState } from "react";
 import { ethers } from "ethers";
 import testMint from "./artifacts/contracts/MichaelRainey.sol/WhereIs22.json";
@@ -9,7 +8,6 @@ import Web3Modal from "web3modal";
 const testMintAddress = "0x9317e2751CcFCA87e5e7a741F93014d8c6ED8aA6";
 
 function App() {
-  const [greeting, setGreetingValue] = useState("");
   async function requestAccount() {
     const delay = ms => new Promise(res => setTimeout(res, ms));
     const providerOptions = {
@@ -84,7 +82,7 @@ function App() {
     
     <div className="App">
   <header>
-    <h2><a href="#">WHEREIS22</a></h2>
+    <h2>HEREIS22</h2>
     <nav>
       <li><a href="https://www.whereis22.io/">Home</a></li>
       <li><a href="https://discord.gg/5su2hwfhcj">Discord</a></li>
@@ -92,12 +90,12 @@ function App() {
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="background-image"></div>
-    <div class="hero-content-area">
+  <section className="hero">
+    <div className="background-image"></div>
+    <div className="hero-content-area">
       <h1>WHEREIS22 NFT</h1>
       <h3>Presale Price: 0.12 eth</h3>
-      <h3 id="address"></h3>
+      <h3 id="address"> </h3>
       <button id="connectButton" onClick={requestAccount}>Connect</button>
       <button onClick={ClaimNFT}>Mint</button>
       <h3 id="info"> </h3>
