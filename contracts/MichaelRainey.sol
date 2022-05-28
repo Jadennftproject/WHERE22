@@ -32,19 +32,19 @@ contract WhereIs22 is ERC721A, Ownable, ReentrancyGuard {
 
     uint256 public _mintPricePreSale = 0.25 ether;
     uint256 public _mintPricePublic = 0.5 ether;
-    
+
     uint256 public _maxMints = 10;
-    
+
     mapping(address => bool) private _freeMintList;
 
     bool public _saleActive;
     bool private _preSaleActive;
-    
+
     constructor() ERC721A("whereis22?", "22?") {
         // set ipfs base url
         _tokenUriBase = "ipfs://bafybeifecsz5k5hcquxlbjvfl52s25yikcv7de6qcd7y3tl3bnv52jlbmu";
     }
-    
+
     // ------- Modifiers -------
     modifier canMintPublic() {
         require(_saleActive, "Sale inactive");
@@ -99,7 +99,7 @@ contract WhereIs22 is ERC721A, Ownable, ReentrancyGuard {
         require(quantity <= _maxMints, "Max exceeded");
         _safeMint(_msgSender(), quantity);
     }
-    
+
     function mint() external payable canMintPublic() isCorrectPrice(1, _mintPricePublic) nonReentrant {
         _safeMint(_msgSender(), 1);
     }
@@ -108,7 +108,7 @@ contract WhereIs22 is ERC721A, Ownable, ReentrancyGuard {
     function setBaseURI(string memory baseURI) external onlyOwner {
         _tokenUriBase = baseURI;
     }
-    
+
     function setPreSale(bool preSaleActive) external onlyOwner {
         _preSaleActive = preSaleActive;
     }
@@ -129,11 +129,11 @@ contract WhereIs22 is ERC721A, Ownable, ReentrancyGuard {
         );
         _maxTokens = newTotalTokens;
     }
-    
+
     function toggleFreeMint(address a, bool b) external onlyOwner {
         _freeMintList[a] = b;
     }
-    
+
     function changeMintPrice(uint256 mintPrice) external onlyOwner {
         _mintPricePublic = mintPrice;
     }
