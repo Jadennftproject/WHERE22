@@ -6,7 +6,7 @@ import "./App.css";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 
-const testMintAddress = "0xA7a188D63a8F189231b2c50eD1db512C395AAAbB";
+const testMintAddress = "0x9317e2751CcFCA87e5e7a741F93014d8c6ED8aA6";
 
 function App() {
   const [greeting, setGreetingValue] = useState("");
@@ -26,46 +26,58 @@ function App() {
       providerOptions // required
     });
 
-    const connection = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(connection);
-    window.provider = provider;
-    document.getElementById("connectButton").style.display = 'none'
-    var accounts = await provider.listAccounts();
-    var account = accounts[0]
-    var connectedString = "Hello,\n" + String(account).substring(0, 5) + "..." + String(account).substring(String(account).length - 4, String(account).length)
-    
-    var waitString = connectedString + "\n\nChecking presale allowlist"
-    document.getElementById("address").innerText = waitString
-    
-    var waitTime = Math.random() * 1000;
-    await delay(waitTime);
-    document.getElementById("address").innerText = waitString + "."
+    try {
+      const connection = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(connection);
+      window.provider = provider;
+      document.getElementById("connectButton").style.display = 'none'
+      var accounts = await provider.listAccounts();
+      var account = accounts[0]
+      var connectedString = "Hello,\n" + String(account).substring(0, 5) + "..." + String(account).substring(String(account).length - 4, String(account).length)
 
-    waitTime = Math.random() * 1000;
-    await delay(waitTime);
-    document.getElementById("address").innerText = waitString + ".."
+      var waitString = connectedString + "\n\nChecking presale allowlist"
+      document.getElementById("address").innerText = waitString
 
-    waitTime = Math.random() * 1000;
-    await delay(waitTime);
-    document.getElementById("address").innerText = waitString + "..."
+      var waitTime = Math.random() * 1000;
+      await delay(waitTime);
+      document.getElementById("address").innerText = waitString + "."
+
+      waitTime = Math.random() * 1000;
+      await delay(waitTime);
+      document.getElementById("address").innerText = waitString + ".."
+
+      waitTime = Math.random() * 1000;
+      await delay(waitTime);
+      document.getElementById("address").innerText = waitString + "..."
+
+      await delay(300);
+      document.getElementById("address").innerText = connectedString + "\n\nCongrats!  You are allowed to mint!\n\nWill you find 22?"
+    } catch (e) {
+      document.getElementById("info").innerText = "Error connecting wallet.  Please try again later."
+    }
     
-    await delay(300);
-    document.getElementById("address").innerText = connectedString + "\n\nCongrats!  You are allowed to mint!\n\nWill you find 22?"
   }
 
   async function ClaimNFT() {
     if (!window.provider)
       await requestAccount();
     
-    const signer = window.provider.getSigner();
-    const contract = new ethers.Contract(
-        testMintAddress,
-        testMint.abi,
-        signer
-    );
+    try {
+      const signer = window.provider.getSigner();
+      const contract = new ethers.Contract(
+          testMintAddress,
+          testMint.abi,
+          signer
+      );
 
-    const txn = await contract["presaleMint()"]({value:"250000000000000000"});
-    await txn.wait();
+      const txn = await contract["mint()"]({value:"120000000000000000"});
+      await txn.wait();
+    } catch (e) {
+      if (e.code === "INSUFFICIENT_FUNDS") {
+        document.getElementById("info").innerText = "Not enough eth for transaction.\nPlease have a little more than .12 eth."
+      }
+    }
+
   }
 
   return (
@@ -84,10 +96,11 @@ function App() {
     <div class="background-image"></div>
     <div class="hero-content-area">
       <h1>WHEREIS22 NFT</h1>
-      <h3>Presale Price: 0.25 eth</h3>
+      <h3>Presale Price: 0.12 eth</h3>
       <h3 id="address"></h3>
       <button id="connectButton" onClick={requestAccount}>Connect</button>
-            <button onClick={ClaimNFT}>Mint</button>
+      <button onClick={ClaimNFT}>Mint</button>
+      <h3 id="info"> </h3>
     </div>
   </section>
     </div>
