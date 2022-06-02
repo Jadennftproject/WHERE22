@@ -97,6 +97,7 @@ function App() {
       <h4>1. Click connect to connect your wallet</h4>
       <h4>2. When connected it will say "Congrats! You are allowed to Mint</h4>
       <h4>3. Now click mint and get your NFT</h4>
+      <h4>4. After minting your NFT will be in your crypto wallet. </h4>
       <h3 id="address"> </h3>
       <button id="connectButton" onClick={requestAccount}>Connect</button>
       <button onClick={ClaimNFT}>Mint</button>
