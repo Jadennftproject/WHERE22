@@ -81,7 +81,7 @@ function App() {
     
     <div className="App">
   <header>
-    <h2>HEREIS22</h2>
+    <h2>WHEREIS22</h2>
     <nav>
       <li><a href="https://www.whereis22.io/">Home</a></li>
       <li><a href="https://discord.gg/5su2hwfhcj">Discord</a></li>
@@ -94,6 +94,9 @@ function App() {
     <div className="hero-content-area">
       <h1>WHEREIS22 NFT</h1>
       <h3>Presale Price: 0.12 eth</h3>
+      <h4>1. Click connect to connect your wallet</h4>
+      <h4>2. When connected it will say "Congrats! You are allowed to Mint</h4>
+      <h4>3. Now click mint and get your NFT</h4>
       <h3 id="address"> </h3>
       <button id="connectButton" onClick={requestAccount}>Connect</button>
       <button onClick={ClaimNFT}>Mint</button>
