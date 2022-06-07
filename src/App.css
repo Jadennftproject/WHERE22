@@ -4,7 +4,7 @@
 .App {
   text-align: center;
   font-family: 'Orbitron', sans-serif;
-  color: white;
+  color: black;
   font-size: 20px;
 }
 
@@ -240,7 +240,7 @@ header nav li {
 	justify-content: center;
 	text-align: center;
 	min-height: 100vh;
-	color: #fff;
+	color: black;
 }
 
 .hero .background-image {
@@ -249,10 +249,10 @@ header nav li {
 	left: 0;
 	width: 100%;
 	height: 100%;
-background-image: url("https://media.giphy.com/media/lmwPKf6XW2bAr7QigX/giphy.gif");
+background-image: white;
 	background-size: cover;
 	z-index: -1;
-	background-color: #80a3db;
+	background-color: white;
 }
 
 .hero h1 {
@@ -283,6 +283,10 @@ background-image: url("https://media.giphy.com/media/lmwPKf6XW2bAr7QigX/giphy.gi
 		opacity: 1;
 		margin: 0;
 	}
+}
+
+.nav {
+  color: black;
 }
 
 @media (max-width: 800px) {

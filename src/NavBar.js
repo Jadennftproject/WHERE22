@@ -14,7 +14,7 @@ const NavBar = ({accounts, setAccounts}) => {
     }
 
     return (
-  <div>
+  <div className="nav">
       <div>Instagram</div>
       <div>Twitter</div>
       <div>Discord</div>

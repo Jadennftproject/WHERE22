@@ -83,8 +83,8 @@ function App() {
   <header>
     <h2>WHEREIS22</h2>
     <nav>
-      <li><a href="https://www.whereis22.io/">Home</a></li>
-      <li><a href="https://discord.gg/5su2hwfhcj">Discord</a></li>
+      <li><a className="nav"href="https://www.whereis22.io/">Home</a></li>
+      <li><a className="nav" href="https://discord.gg/5su2hwfhcj">Discord</a></li>
       
     </nav>
   </header>
